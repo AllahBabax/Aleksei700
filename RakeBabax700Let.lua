@@ -63,7 +63,7 @@ local function esp(target,color,textcolor)
 	esp.Font = "Arial"
 	esp.TextSize = 25
 	esp.TextColor3 = textcolor
-	gui.Parent = target.HumanoidRootPart
+	gui.Parent = target.Head
 end
 
 if workspace:FindFirstChild('Rake') then
@@ -73,7 +73,7 @@ end
 for i,v in pairs(game:GetService('Players'):GetPlayers()) do
 	if game:GetService("Players"):FindFirstChild(v.Name) and v.Name ~= plr.Name then
 		if workspace:FindFirstChild(v.Name) then
-			esp(v,Color3.fromRGB(120, 255, 194),Color3.fromRGB(140, 0, 200))
+			esp(v.Character,Color3.fromRGB(120, 255, 194),Color3.fromRGB(140, 0, 200))
 		end
 	end
 end

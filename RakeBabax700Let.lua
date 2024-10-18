@@ -12,7 +12,7 @@ local lighting = game:GetService("Lighting")
 
 local music = "rbxassetid://1848354536"
 
-task.wait(15)
+task.wait(3)
 
 local sound = Instance.new("Sound",game:GetService('SoundService'))
 sound.SoundId = music
@@ -59,20 +59,6 @@ for i,v in pairs(game:GetService("Players"):GetPlayers()) do
 		else
 			highlight.FillTransparency = 1
 		end
-		local billdboardgui = Instance.new("BillboardGui",v.Character.Head)
-		billdboardgui.AlwaysOnTop = true
-		billdboardgui.Enabled = true
-		billdboardgui.Size = UDim2.new(0,200,0,50)
-		local label = Instance.new('TextLabel',billdboardgui)
-		if tostring(v.Character.Name) == "moll797" then
-			label.Text = v.Character.Name.." Краш😘!"
-		else
-			label.Text = v.Character.Name
-		end
-		label.Size = UDim2.new(1,0,1,0)
-		label.TextColor3 = Color3.fromRGB(0, 4, 255)
-		label.TextScaled = true
-		label.BackgroundTransparency = 1
 	end
 end
 
@@ -130,20 +116,6 @@ workspace.ChildAdded:Connect(function(child)
 		else
 			highlight.FillTransparency = 1
 		end
-		local billdboardgui = Instance.new("BillboardGui",child.Head)
-		billdboardgui.AlwaysOnTop = true
-		billdboardgui.Enabled = true
-		billdboardgui.Size = UDim2.new(0,200,0,50)
-		local label = Instance.new('TextLabel',billdboardgui)
-		if child.Name == "moll797" then
-			label.Text = child.Name.." Краш😘!"
-		else
-			label.Text = child.Name.." Gandon!"
-		end
-		label.Size = UDim2.new(1,0,1,0)
-		label.TextColor3 = Color3.fromRGB(0, 4, 255)
-		label.TextScaled = true
-		label.BackgroundTransparency = 1
 	end
 end)
 

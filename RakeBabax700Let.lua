@@ -12,7 +12,7 @@ local lighting = game:GetService("Lighting")
 
 local music = "rbxassetid://1848354536"
 
-task.wait(5)
+task.wait(15)
 
 local sound = Instance.new("Sound",game:GetService('SoundService'))
 sound.SoundId = music
@@ -49,7 +49,7 @@ end
 for i,v in pairs(game:GetService("Players"):GetPlayers()) do
 	if v.Name ~= plr.Name then
 		local highlight = Instance.new("Highlight",v.Character)
-		highlight.Name = "PlayerEsp"..v.Character.Name
+		highlight.Name = "PlayerEsp"
 		highlight.Enabled = true
 		highlight.FillColor = Color3.fromRGB(3, 167, 255)
 		highlight.OutlineColor = Color3.fromRGB(255, 129, 196)
@@ -116,7 +116,7 @@ end)
 workspace.ChildAdded:Connect(function(child)
 	if game.Players:FindFirstChild(child.Name) and child.Name ~= plr.Name then
 		local highlight = Instance.new("Highlight",child)
-		highlight.Name = "PlayerEsp"..child.Name
+		highlight.Name = "PlayerEsp"
 		highlight.Enabled = true
 		highlight.FillColor = Color3.fromRGB(3, 167, 255)
 		highlight.OutlineColor = Color3.fromRGB(255, 129, 196)

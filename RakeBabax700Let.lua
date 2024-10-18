@@ -26,22 +26,23 @@ if workspace:FindFirstChild("Rake") then
 	local highlight = Instance.new("Highlight",workspace.Rake)
 	highlight.Name = "RakeEsp"
 	highlight.Enabled = true
-	highlight.FillColor = Color3.fromRGB(255, 0, 208)
-	highlight.OutlineColor = Color3.fromRGB(255, 238, 0)
+	highlight.FillColor = Color3.fromRGB(255, 0, 0)
+	highlight.OutlineColor = Color3.fromRGB(255, 102, 0)
 	highlight.OutlineTransparency = 0
 	if rakeesp == true then
-		highlight.FillTransparency = 0
+		highlight.FillTransparency = 0.5
 	else
 		highlight.FillTransparency = 1
 	end
 	local emitter = Instance.new("ParticleEmitter",workspace.Rake.HumanoidRootPart)
-	local billdboardgui = Instance.new("BillboardGui",workspace.Rake)
+	local billdboardgui = Instance.new("BillboardGui",workspace.Rake.Head)
 	billdboardgui.AlwaysOnTop = true
-	billdboardgui.LightInfluence = 0
-	billdboardgui.ResetOnSpawn = false
+	billdboardgui.Enabled = true
+	billdboardgui.Size = UDim2.new(0,200,0,50)
 	local label = Instance.new('TextLabel',billdboardgui)
-	label.Text = "RAKE PIDORAS 1488!"
-	label.TextColor3 = Color3.fromRGB(0,255,0)
+	label.Text = "Rake svin"
+	label.Size = UDim2.new(1,0,1,0)
+	label.TextColor3 = Color3.fromRGB(255, 0, 0)
 	label.TextScaled = true
 	label.BackgroundTransparency = 1
 end
@@ -58,16 +59,27 @@ for i,v in pairs(game:GetService("Players"):GetPlayers()) do
 		else
 			highlight.FillTransparency = 1
 		end
+		local billdboardgui = Instance.new("BillboardGui",workspace.Rake.Head)
+		billdboardgui.AlwaysOnTop = true
+		billdboardgui.Enabled = true
+		billdboardgui.Size = UDim2.new(0,200,0,50)
+		local label = Instance.new('TextLabel',billdboardgui)
+		label.Text = tostring(v.Character.Name).." Gandon!"
+		label.Size = UDim2.new(1,0,1,0)
+		label.TextColor3 = Color3.fromRGB(0, 4, 255)
+		label.TextScaled = true
+		label.BackgroundTransparency = 1
 	end
 end
 
 for i,v in pairs(workspace:WaitForChild("Filter"):GetChildren()) do
 	local billdboardgui = Instance.new("BillboardGui",v)
 	billdboardgui.AlwaysOnTop = true
-	billdboardgui.LightInfluence = 0
-	billdboardgui.ResetOnSpawn = false
+	billdboardgui.Enabled = true
+	billdboardgui.Size = UDim2.new(0,200,0,50)
 	local label = Instance.new('TextLabel',billdboardgui)
 	label.Text = v.Name
+	label.Size = UDim2.new(1,0,1,0)
 	label.TextColor3 = Color3.fromRGB(0,255,0)
 	label.TextScaled = true
 	label.BackgroundTransparency = 1
@@ -79,22 +91,23 @@ workspace.ChildAdded:Connect(function(child)
 			local highlight = Instance.new("Highlight",workspace.Rake)
 			highlight.Name = "RakeEsp"
 			highlight.Enabled = true
-			highlight.FillColor = Color3.fromRGB(255, 0, 123)
-			highlight.OutlineColor = Color3.fromRGB(149, 0, 255)
+			highlight.FillColor = Color3.fromRGB(255, 0, 0)
+			highlight.OutlineColor = Color3.fromRGB(255, 106, 0)
 			highlight.OutlineTransparency = 0
 			if rakeesp == true then
-				highlight.FillTransparency = 0.75
+				highlight.FillTransparency = 0.5
 			else
 				highlight.FillTransparency = 1
 			end
 			local emitter = Instance.new("ParticleEmitter",workspace.Rake.HumanoidRootPart)
-			local billdboardgui = Instance.new("BillboardGui",workspace.Rake)
+			local billdboardgui = Instance.new("BillboardGui",workspace.Rake.Head)
 			billdboardgui.AlwaysOnTop = true
-			billdboardgui.LightInfluence = 0
-			billdboardgui.ResetOnSpawn = false
+			billdboardgui.Enabled = true
+			billdboardgui.Size = UDim2.new(0,200,0,50)
 			local label = Instance.new('TextLabel',billdboardgui)
-			label.Text = "RAKE PIDORAS 1488!"
-			label.TextColor3 = Color3.fromRGB(0,255,0)
+			label.Text = "Rake svin"
+			label.Size = UDim2.new(1,0,1,0)
+			label.TextColor3 = Color3.fromRGB(255, 0, 0)
 			label.TextScaled = true
 			label.BackgroundTransparency = 1
 		end
@@ -102,7 +115,7 @@ workspace.ChildAdded:Connect(function(child)
 end)
 
 workspace.ChildAdded:Connect(function(child)
-	if game.Players:FindFirstChild(child.Name) and child.Name ~= plr.Name then
+	if game:GetService("Players"):FindFirstChild(child.Name) and child.Name ~= plr.Name then
 		local highlight = Instance.new("Highlight",child)
 		highlight.Enabled = true
 		highlight.FillColor = Color3.fromRGB(3, 167, 255)
@@ -113,6 +126,16 @@ workspace.ChildAdded:Connect(function(child)
 		else
 			highlight.FillTransparency = 1
 		end
+		local billdboardgui = Instance.new("BillboardGui",workspace.Rake.Head)
+		billdboardgui.AlwaysOnTop = true
+		billdboardgui.Enabled = true
+		billdboardgui.Size = UDim2.new(0,200,0,50)
+		local label = Instance.new('TextLabel',billdboardgui)
+		label.Text = tostring(child.Name).." Gandon"
+		label.Size = UDim2.new(1,0,1,0)
+		label.TextColor3 = Color3.fromRGB(0, 4, 255)
+		label.TextScaled = true
+		label.BackgroundTransparency = 1
 	end
 end)
 
@@ -122,7 +145,7 @@ runs.RenderStepped:Connect(function()
 	plr.CameraMode = Enum.CameraMode.Classic
 	lighting.Bloom.Enabled = false
 	lighting.Ambient = Color3.fromRGB(255, 255, 255)
-	lighting.Brightness = 2
+	lighting.Brightness = 1
 	lighting.ClockTime = 10
 	lighting.ShadowSoftness = 0
 	lighting.FogEnd = 10000

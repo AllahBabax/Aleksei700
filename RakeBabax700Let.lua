@@ -12,7 +12,7 @@ local lighting = game:GetService("Lighting")
 
 local music = "rbxassetid://1848354536"
 
-task.wait(5)
+task.wait(15)
 
 local sound = Instance.new("Sound",game:GetService('SoundService'))
 sound.SoundId = music

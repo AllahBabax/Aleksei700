@@ -2,7 +2,7 @@ local runs = game:GetService("RunService")
 
 local plr = game:GetService('Players').LocalPlayer
 
-local speed = 32 --default 29 
+local speed = 23 --default 29 
 
 local plresp = true --default true
 
@@ -59,12 +59,16 @@ for i,v in pairs(game:GetService("Players"):GetPlayers()) do
 		else
 			highlight.FillTransparency = 1
 		end
-		local billdboardgui = Instance.new("BillboardGui",workspace.Rake.Head)
+		local billdboardgui = Instance.new("BillboardGui",v.Character.Head)
 		billdboardgui.AlwaysOnTop = true
 		billdboardgui.Enabled = true
 		billdboardgui.Size = UDim2.new(0,200,0,50)
 		local label = Instance.new('TextLabel',billdboardgui)
-		label.Text = tostring(v.Character.Name).." Gandon!"
+		if v.Character.Name == "moll797" then
+			label.Text = v.Character.Name.." Краш😘!"
+		else
+			label.Text = v.Character.Name.." Gandon!"
+		end
 		label.Size = UDim2.new(1,0,1,0)
 		label.TextColor3 = Color3.fromRGB(0, 4, 255)
 		label.TextScaled = true
@@ -72,7 +76,7 @@ for i,v in pairs(game:GetService("Players"):GetPlayers()) do
 	end
 end
 
-for i,v in pairs(workspace:WaitForChild("Filter"):GetChildren()) do
+for i,v in pairs(workspace:WaitForChild("Filter"):WaitForChild("LocationPoints"):GetChildren()) do
 	local billdboardgui = Instance.new("BillboardGui",v)
 	billdboardgui.AlwaysOnTop = true
 	billdboardgui.Enabled = true
@@ -105,7 +109,7 @@ workspace.ChildAdded:Connect(function(child)
 			billdboardgui.Enabled = true
 			billdboardgui.Size = UDim2.new(0,200,0,50)
 			local label = Instance.new('TextLabel',billdboardgui)
-			label.Text = "Rake svin"
+			label.Text = "Rake🤑"
 			label.Size = UDim2.new(1,0,1,0)
 			label.TextColor3 = Color3.fromRGB(255, 0, 0)
 			label.TextScaled = true
@@ -126,12 +130,16 @@ workspace.ChildAdded:Connect(function(child)
 		else
 			highlight.FillTransparency = 1
 		end
-		local billdboardgui = Instance.new("BillboardGui",workspace.Rake.Head)
+		local billdboardgui = Instance.new("BillboardGui",child.Head)
 		billdboardgui.AlwaysOnTop = true
 		billdboardgui.Enabled = true
 		billdboardgui.Size = UDim2.new(0,200,0,50)
 		local label = Instance.new('TextLabel',billdboardgui)
-		label.Text = tostring(child.Name).." Gandon"
+		if child.Name == "moll797" then
+			label.Text = child.Name.." Краш😘!"
+		else
+			label.Text = child.Name.." Gandon!"
+		end
 		label.Size = UDim2.new(1,0,1,0)
 		label.TextColor3 = Color3.fromRGB(0, 4, 255)
 		label.TextScaled = true

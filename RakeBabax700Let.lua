@@ -93,6 +93,8 @@ workspace.ChildAdded:Connect(function(child)
 		if workspace:FindFirstChild(child.Name) then
 			esp(child,Color3.fromRGB(120, 255, 194),Color3.fromRGB(140, 0, 200))
 		end
+	elseif game:GetService("Players"):FindFirstChild(child.Name)  == nil then
+		esp(child,Color3.fromRGB(47, 255, 0),Color3.fromRGB(255,0,0))
 	end
 end)
 

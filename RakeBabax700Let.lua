@@ -73,7 +73,7 @@ end
 for i,v in pairs(game:GetService('Players'):GetPlayers()) do
 	if game:GetService("Players"):FindFirstChild(v.Name) and v.Name ~= plr.Name then
 		if workspace:FindFirstChild(v.Name) then
-			esp(v.Head,Color3.fromRGB(120, 255, 194),Color3.fromRGB(140, 0, 200))
+			esp(v,Color3.fromRGB(120, 255, 194),Color3.fromRGB(140, 0, 200))
 		end
 	end
 end

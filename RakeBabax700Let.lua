@@ -63,7 +63,7 @@ local function esp(target,color,textcolor)
 	esp.Font = "Arial"
 	esp.TextSize = 25
 	esp.TextColor3 = textcolor
-	gui.Parent = target.Head
+	gui.Parent = target.HumanoidRootPart
 end
 
 if workspace:FindFirstChild('Rake') then

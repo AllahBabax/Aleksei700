@@ -2,126 +2,105 @@ local runs = game:GetService("RunService")
 
 local plr = game:GetService('Players').LocalPlayer
 
-local speed = 32 --default 29 
-
-local plresp = true --default true
-
-local rakeesp = true --default true
+local speed = 23 --default 29 
 
 local lighting = game:GetService("Lighting")
 
 local music = "rbxassetid://1848354536"
 
-task.wait(3)
-
+task.wait(5)
+print("ALLAX BABAX CHEAT ACTIVED 228 1488 GOIDA ZZZZ ZOV ZZZZZZ!!!!!😍😍😍😍🥰🥰😘😘🥰🤩")
 local sound = Instance.new("Sound",game:GetService('SoundService'))
 sound.SoundId = music
-sound.Volume = 0.4
+sound.Volume = 0.3
 sound.Looped = true
 sound.Playing = true
 
-print("ALLAX BABAX CHEAT ACTIVED 228 1488 GOIDA ZZZZ ZOV ZZZZZZ!!!!!😍😍😍😍🥰🥰😘😘🥰🤩")
+local function mapesp(target,color,textcolor)
+	local gui = Instance.new("BillboardGui")
+	local esp = Instance.new("TextLabel",gui)
 
-if workspace:FindFirstChild("Rake") then
-	local highlight = Instance.new("Highlight",workspace.Rake)
-	highlight.Name = "RakeEsp"
-	highlight.Enabled = true
-	highlight.FillColor = Color3.fromRGB(255, 0, 0)
-	highlight.OutlineColor = Color3.fromRGB(255, 102, 0)
-	highlight.OutlineTransparency = 0
-	if rakeesp == true then
-		highlight.FillTransparency = 0.5
-	else
-		highlight.FillTransparency = 1
-	end
-	local emitter = Instance.new("ParticleEmitter",workspace.Rake.HumanoidRootPart)
-	local billdboardgui = Instance.new("BillboardGui",workspace.Rake.Head)
-	billdboardgui.AlwaysOnTop = true
-	billdboardgui.Enabled = true
-	billdboardgui.Size = UDim2.new(0,200,0,50)
-	local label = Instance.new('TextLabel',billdboardgui)
-	label.Text = "Rake svin"
-	label.Size = UDim2.new(1,0,1,0)
-	label.TextColor3 = Color3.fromRGB(255, 0, 0)
-	label.TextScaled = true
-	label.BackgroundTransparency = 1
+	gui.Name = "Allah ESP"
+	gui.ResetOnSpawn = false
+	gui.AlwaysOnTop = true;
+	gui.LightInfluence = 0;
+	gui.Size = UDim2.new(2, 0, 2, 0);
+	esp.BackgroundColor3 = color;
+	esp.Text = target.Name
+	esp.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001);
+	esp.BorderSizePixel = 4;
+	esp.BorderColor3 = Color3.new(0.435294, 1, 0.905882)
+	esp.BorderSizePixel = 0
+	esp.Font = "Arial"
+	esp.TextSize = 25
+	esp.TextColor3 = textcolor
+	gui.Parent = target
 end
 
-for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-	if v.Name ~= plr.Name then
-		local highlight = Instance.new("Highlight",v.Character)
-		highlight.Enabled = true
-		highlight.FillColor = Color3.fromRGB(3, 167, 255)
-		highlight.OutlineColor = Color3.fromRGB(255, 129, 196)
-		highlight.OutlineTransparency = 0
-		if plresp == true then
-			highlight.FillTransparency = 0.75
-		else
-			highlight.FillTransparency = 1
+local function esp(target,color,textcolor)
+	if target:FindFirstChild("Highlight") then return end
+	local gui = Instance.new("BillboardGui")
+	local esp = Instance.new("TextLabel",gui)
+	local hightlight = Instance.new("Highlight")
+	hightlight.FillColor = color
+	hightlight.OutlineColor = textcolor
+	hightlight.Enabled = true
+	hightlight.Parent = target
+	hightlight.OutlineTransparency = 0.5
+	hightlight.FillTransparency = 0.5
+
+	gui.Name = "Allah ESP"
+	gui.ResetOnSpawn = false
+	gui.AlwaysOnTop = true;
+	gui.LightInfluence = 0;
+	gui.Size = UDim2.new(2, 0, 2, 0);
+	esp.BackgroundColor3 = color;
+	esp.Text = target.Name
+	esp.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001);
+	esp.BorderSizePixel = 4;
+	esp.BorderColor3 = Color3.new(0.435294, 1, 0.905882)
+	esp.BorderSizePixel = 0
+	esp.Font = "Arial"
+	esp.TextSize = 25
+	esp.TextColor3 = textcolor
+	gui.Parent = target.Head
+end
+
+if workspace:FindFirstChild('Rake') then
+	esp(workspace.Rake,Color3.fromRGB(255, 0, 0),Color3.fromRGB(255, 180, 0))
+end
+
+for i,v in pairs(game:GetService('Players'):GetPlayers()) do
+	if game:GetService("Players"):FindFirstChild(v.Name) and v.Name ~= plr.Name then
+		if workspace:FindFirstChild(v.Name) then
+			esp(v.Head,Color3.fromRGB(120, 255, 194),Color3.fromRGB(140, 0, 200))
 		end
 	end
 end
 
 for i,v in pairs(workspace:WaitForChild("Filter"):WaitForChild("LocationPoints"):GetChildren()) do
-	local billdboardgui = Instance.new("BillboardGui",v)
-	billdboardgui.AlwaysOnTop = true
-	billdboardgui.Enabled = true
-	billdboardgui.Size = UDim2.new(0,200,0,50)
-	local label = Instance.new('TextLabel',billdboardgui)
-	label.Text = v.Name
-	label.Size = UDim2.new(1,0,1,0)
-	label.TextColor3 = Color3.fromRGB(0,255,0)
-	label.TextScaled = true
-	label.BackgroundTransparency = 1
+	mapesp(v,Color3.fromRGB(255, 255, 255),Color3.fromRGB(0,255,100))
 end
 
 workspace.ChildAdded:Connect(function(child)
 	if child.Name == "Rake" then
 		if workspace:FindFirstChild('Rake') then
-			local highlight = Instance.new("Highlight",workspace.Rake)
-			highlight.Name = "RakeEsp"
-			highlight.Enabled = true
-			highlight.FillColor = Color3.fromRGB(255, 0, 0)
-			highlight.OutlineColor = Color3.fromRGB(255, 106, 0)
-			highlight.OutlineTransparency = 0
-			if rakeesp == true then
-				highlight.FillTransparency = 0.5
-			else
-				highlight.FillTransparency = 1
-			end
-			local emitter = Instance.new("ParticleEmitter",workspace.Rake.HumanoidRootPart)
-			local billdboardgui = Instance.new("BillboardGui",workspace.Rake.Head)
-			billdboardgui.AlwaysOnTop = true
-			billdboardgui.Enabled = true
-			billdboardgui.Size = UDim2.new(0,200,0,50)
-			local label = Instance.new('TextLabel',billdboardgui)
-			label.Text = "Rake🤑"
-			label.Size = UDim2.new(1,0,1,0)
-			label.TextColor3 = Color3.fromRGB(255, 0, 0)
-			label.TextScaled = true
-			label.BackgroundTransparency = 1
+			esp(workspace.Rake,Color3.fromRGB(255, 0, 0),Color3.fromRGB(200,50,50))
+		end
+	end
+	
+	if game:GetService("Players"):FindFirstChild(child.Name) and child.Name ~= plr.Name then
+		if workspace:FindFirstChild(child.Name) then
+			esp(child,Color3.fromRGB(120, 255, 194),Color3.fromRGB(140, 0, 200))
 		end
 	end
 end)
 
-workspace.ChildAdded:Connect(function(child)
-	if game:GetService("Players"):FindFirstChild(child.Name) and child.Name ~= plr.Name then
-		local highlight = Instance.new("Highlight",child)
-		highlight.Enabled = true
-		highlight.FillColor = Color3.fromRGB(3, 167, 255)
-		highlight.OutlineColor = Color3.fromRGB(255, 129, 196)
-		highlight.OutlineTransparency = 0
-		if plresp == true then
-			highlight.FillTransparency = 0.75
-		else
-			highlight.FillTransparency = 1
-		end
-	end
-end)
+task.wait(5)
 
 runs.RenderStepped:Connect(function()
 	plr.CameraMaxZoomDistance = 1000
-	plr.CameraMinZoomDistance = 10
+	plr.CameraMinZoomDistance = 12
 	plr.CameraMode = Enum.CameraMode.Classic
 	lighting.Bloom.Enabled = false
 	lighting.Ambient = Color3.fromRGB(255, 255, 255)

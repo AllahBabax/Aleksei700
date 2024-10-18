@@ -2,7 +2,7 @@ local runs = game:GetService("RunService")
 
 local plr = game:GetService('Players').LocalPlayer
 
-local speed = 23 --default 29 
+local speed = 32 --default 29 
 
 local plresp = true --default true
 

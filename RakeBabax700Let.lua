@@ -64,10 +64,10 @@ for i,v in pairs(game:GetService("Players"):GetPlayers()) do
 		billdboardgui.Enabled = true
 		billdboardgui.Size = UDim2.new(0,200,0,50)
 		local label = Instance.new('TextLabel',billdboardgui)
-		if v.Character.Name == "moll797" then
+		if tostring(v.Character.Name) == "moll797" then
 			label.Text = v.Character.Name.." Краш😘!"
 		else
-			label.Text = v.Character.Name.." Gandon!"
+			label.Text = v.Character.Name
 		end
 		label.Size = UDim2.new(1,0,1,0)
 		label.TextColor3 = Color3.fromRGB(0, 4, 255)

@@ -38,32 +38,33 @@ local function mapesp(target,color,textcolor)
 end
 
 local function esp(target,color,textcolor)
-	if target:FindFirstChild("Highlight") then return end
-	local gui = Instance.new("BillboardGui")
-	local esp = Instance.new("TextLabel",gui)
-	local hightlight = Instance.new("Highlight")
-	hightlight.FillColor = color
-	hightlight.OutlineColor = textcolor
-	hightlight.Enabled = true
-	hightlight.Parent = target
-	hightlight.OutlineTransparency = 0.5
-	hightlight.FillTransparency = 0.5
+	if target:FindFirstChild("Highlight") == nil and target.Head:FindFirstChild("Allah ESP") == nil then
+		local gui = Instance.new("BillboardGui")
+		local esp = Instance.new("TextLabel",gui)
+		local hightlight = Instance.new("Highlight")
+		hightlight.FillColor = color
+		hightlight.OutlineColor = textcolor
+		hightlight.Enabled = true
+		hightlight.Parent = target
+		hightlight.OutlineTransparency = 0.5
+		hightlight.FillTransparency = 0.5
 
-	gui.Name = "Allah ESP"
-	gui.ResetOnSpawn = false
-	gui.AlwaysOnTop = true;
-	gui.LightInfluence = 0;
-	gui.Size = UDim2.new(2, 0, 2, 0);
-	esp.BackgroundColor3 = color;
-	esp.Text = target.Name
-	esp.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001);
-	esp.BorderSizePixel = 4;
-	esp.BorderColor3 = Color3.new(0.435294, 1, 0.905882)
-	esp.BorderSizePixel = 0
-	esp.Font = "Arial"
-	esp.TextSize = 25
-	esp.TextColor3 = textcolor
-	gui.Parent = target.Head
+		gui.Name = "Allah ESP"
+		gui.ResetOnSpawn = false
+		gui.AlwaysOnTop = true;
+		gui.LightInfluence = 0;
+		gui.Size = UDim2.new(2, 0, 2, 0);
+		esp.BackgroundColor3 = color;
+		esp.Text = target.Name
+		esp.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001);
+		esp.BorderSizePixel = 4;
+		esp.BorderColor3 = Color3.new(0.435294, 1, 0.905882)
+		esp.BorderSizePixel = 0
+		esp.Font = "Arial"
+		esp.TextSize = 25
+		esp.TextColor3 = textcolor
+		gui.Parent = target.Head
+	end
 end
 
 if workspace:FindFirstChild('Rake') then
@@ -89,12 +90,10 @@ workspace.ChildAdded:Connect(function(child)
 		end
 	end
 	
-	if game:GetService("Players"):FindFirstChild(child.Name) and child.Name ~= plr.Name then
-		if workspace:FindFirstChild(child.Name) then
+	if game:GetService("Players"):FindFirstChild(child.Name) ~= nil and child.Name ~= plr.Name then
+		if workspace:FindFirstChild(child.Name) ~= nil then
 			esp(child,Color3.fromRGB(120, 255, 194),Color3.fromRGB(140, 0, 200))
 		end
-	elseif game:GetService("Players"):FindFirstChild(child.Name)  == nil and child.Name ~= "Rake" then
-		esp(child,Color3.fromRGB(47, 255, 0),Color3.fromRGB(255,0,0))
 	end
 end)
 
@@ -102,12 +101,12 @@ task.wait(5)
 
 runs.RenderStepped:Connect(function()
 	plr.CameraMaxZoomDistance = 1000
-	plr.CameraMinZoomDistance = 12
+	plr.CameraMinZoomDistance = 14
 	plr.CameraMode = Enum.CameraMode.Classic
 	lighting.Bloom.Enabled = false
 	lighting.Ambient = Color3.fromRGB(255, 255, 255)
 	lighting.Brightness = 1
-	lighting.ClockTime = 10
+	lighting.ClockTime = 12
 	lighting.ShadowSoftness = 0
 	lighting.FogEnd = 10000
 	lighting.FogColor = Color3.fromRGB(255,255,255)

@@ -38,7 +38,6 @@ local function mapesp(target,color,textcolor)
 end
 
 local function esp(target,color,textcolor)
-	if target:FindFirstChild("Highlight") == nil and target.Head:FindFirstChild("Allah ESP") == nil then
 		local gui = Instance.new("BillboardGui")
 		local esp = Instance.new("TextLabel",gui)
 		local hightlight = Instance.new("Highlight")
@@ -64,7 +63,6 @@ local function esp(target,color,textcolor)
 		esp.TextSize = 25
 		esp.TextColor3 = textcolor
 		gui.Parent = target.Head
-	end
 end
 
 if workspace:FindFirstChild('Rake') then
@@ -91,7 +89,7 @@ workspace.ChildAdded:Connect(function(child)
 	end
 	
 	if game:GetService("Players"):FindFirstChild(child.Name) ~= nil and child.Name ~= plr.Name then
-		if workspace:FindFirstChild(child.Name) ~= nil then
+		if workspace:FindFirstChild(child.Name) ~= nil and child.Name ~= plr.Name then
 			esp(child,Color3.fromRGB(120, 255, 194),Color3.fromRGB(140, 0, 200))
 		end
 	end
